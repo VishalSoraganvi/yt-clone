@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 const Comments = ({ videoId, totalComments }) => {
   const dispatch = useDispatch();
   const [text, setText] = useState("");
+  const { photoURL } = useSelector((state) => state.auth?.user);
 
   const comments = useSelector((state) => state.commentList.comments);
   const _comments = comments?.map(
@@ -30,11 +31,7 @@ const Comments = ({ videoId, totalComments }) => {
     <div className="comments">
       <p>{totalComments} comments</p>
       <div className="comments__form d-flex w-100 my-2">
-        <img
-          src="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg"
-          alt=""
-          className="rounded-circle me-3"
-        />
+        <img src={photoURL} alt="" className="rounded-circle me-3" />
         <form onSubmit={handleComment} className="d-flex flex-grow-1">
           <input
             type="text"

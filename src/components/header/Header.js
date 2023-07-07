@@ -5,9 +5,12 @@ import { AiOutlineSearch } from "react-icons/ai";
 import { MdNotifications } from "react-icons/md";
 import { MdApps } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = ({ handleToggleSideBar }) => {
   const [input, setInput] = useState("");
+
+  const { photoURL } = useSelector((state) => state.auth?.user);
 
   const navigate = useNavigate();
 
@@ -42,10 +45,7 @@ const Header = ({ handleToggleSideBar }) => {
       <div className="header__icons">
         <MdNotifications size={28} />
         <MdApps size={28} />
-        <img
-          src="https://sm.ign.com/ign_ap/cover/a/avatar-gen/avatar-generations_hugw.jpg"
-          alt="avatar"
-        />
+        <img src={photoURL} alt="avatar" />
       </div>
     </div>
   );

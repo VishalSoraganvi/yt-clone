@@ -6,11 +6,14 @@ import Comments from "../../components/comments/Comments";
 import VideoHorizontal from "../../components/videoHorizontal/VideoHorizontal";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Helmet } from "react-helmet";
+
 import {
   getRelatedVideos,
   getVideoById,
 } from "../../redux/actions/videos.action";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import HelmetCustom from "../../components/HelmetCustom";
 
 const WatchScreen = () => {
   const { id } = useParams();
@@ -28,6 +31,7 @@ const WatchScreen = () => {
 
   return (
     <Row>
+      <HelmetCustom title={videos?.snippet?.title} />
       <Col lg={8}>
         <div className="watchScreen__player">
           <iframe

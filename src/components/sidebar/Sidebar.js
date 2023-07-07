@@ -24,10 +24,13 @@ const Sidebar = ({ sidebar, handleToggleSideBar }) => {
       className={sidebar ? "sidebar open" : "sidebar"}
       onClick={() => handleToggleSideBar()}
     >
-      <li>
-        <MdHome size={23} />
-        <span>Home</span>
-      </li>
+      <Link to="/">
+        <li>
+          <MdHome size={23} />
+          <span>Home</span>
+        </li>
+      </Link>
+
       <Link to="/feed/subscriptions">
         <li>
           <MdSubscriptions size={23} />
